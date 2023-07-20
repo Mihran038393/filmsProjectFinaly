@@ -13,7 +13,7 @@ export const MostRated = () => {
 
 
     const maxTitleLength = 18;
-    const initialValue = useData();
+    const { value: initialValue } = useData();
     const value = initialValue.filter((item) => item.row.vote_average >= 7);
 
     return(

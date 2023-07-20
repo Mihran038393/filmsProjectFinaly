@@ -4,7 +4,7 @@ import '../main.css'
 
 export const Card1 = () => {
 
-    const value = useData()
+    const { value } = useData();
     const displayedCards1 = value.slice(0, 6);
     const maxTitleLength = 18; 
 

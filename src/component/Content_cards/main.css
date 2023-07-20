@@ -20,20 +20,43 @@
     display: inline-block;
   }
   .card_title{
-    color:white;
     font-style: italic;
     font-size: 16px;
   }
 
   .card_title2{
-    color:white;
+
     font-size: 13px;
     font-style: italic;
   }
 
+  body.light .card_title2 {
+    color:rgb(0, 0, 0);
+  }
+
+  body.dark .card_title2 {
+    color:white;
+  }
+
+  body.light .card_title{
+    color:rgb(0, 0, 0);
+  }
+
+  body.dark .card_title{
+    color:white;
+  }
+
   .title_main{
-    color: aliceblue;
     margin: 50px 0 0 100px;
     font-size: 26px;
     font-family: 'Poppins', sans-serif;
+  }
+
+
+  body.light .title_main{
+    color:rgb(0, 0, 0);
+  }
+
+  body.dark .title_main{
+    color:white;
   }

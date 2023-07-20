@@ -1,18 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SearchOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MaterialUISwitch } from "./Switch.js";
 import "./menu.css";
 import { menu_consts } from "./header_consts.js";
 import "./SearchInput/Search.css";
+import { useData } from '../Content_cards/main.js';
 
 
-export const Menu = () => {
-  const [showSearchDiv, setShowSearchDiv] = useState(false);
+
+export const Menu = (props) => {
+  const { isSearchOpen, onSearch, onToggleSearch } = useData();
+  const navigate = useNavigate();
+  const location = useLocation();
+  // const [showSearchDiv, setShowSearchDiv] = useState(false);
+  const [search, setSearch] = useState('');
+
+
+  useEffect(() => {
+    if(isSearchOpen && location.pathname !== "/all-films" ) {
+      // setShowSearchDiv(false);
+      onToggleSearch(false);
+    }
+  }, [location]);
 
   const handleClickSearch = () => {
-    setShowSearchDiv(!showSearchDiv);
+    // setShowSearchDiv(!showSearchDiv);
+    onToggleSearch();
+    if (!isSearchOpen) {
+      navigate("all-films");
+    }
   };
+
+
+  const handleSearch = (event) => {
+    const { value } = event.target;
+    setSearch(value);
+    onSearch(value);
+  };
+  const onSwitch = (e, checked) => {
+    const theme = checked ? "light" : "dark";
+    props.onChangeTheme(theme)
+  }
+
 
   return (
     <>
@@ -35,13 +65,13 @@ export const Menu = () => {
           <div className="search_logo" onClick={handleClickSearch}>
             <SearchOutlined />
           </div>
-          <MaterialUISwitch />
+          <MaterialUISwitch onChange={onSwitch}/>
         </ul>
       </div>
-      {showSearchDiv && (
+      {isSearchOpen && (
           <div className='div_style'>
             <div>
-               <input className='input_style' type='text' placeholder='Search for movies and series' />
+               <input onChange={handleSearch} className='input_style' type="text" placeholder='Search for movies and series' />
             </div>
             <div style={{position:"absolute", color:"white", fontSize:"28px", left:"69%"}}>
             <SearchOutlined />

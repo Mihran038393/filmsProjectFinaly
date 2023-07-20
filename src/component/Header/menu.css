@@ -1,10 +1,18 @@
 
 body {
-    background-color:#151617;
+    
     margin: 0;
     padding: 0;
   }
-  
+
+body.dark {
+    background-color:#151617;
+}  
+
+body.light {
+    background-color:#dddddd;
+}
+
 .main_menu{
     display: flex;
     flex-direction: row;

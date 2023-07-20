@@ -3,7 +3,7 @@ import { useData } from "../main";
 
 export const Card2 = () => {
 
-    const value = useData()
+    const { value } = useData();
     const displayedCards2 = value.slice(7, 13);
     const maxTitleLength = 18; 
 

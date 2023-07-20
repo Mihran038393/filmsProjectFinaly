@@ -46,18 +46,7 @@ const Slider = () => {
           <button  className="button">Watch Now</button>
           </Link>
         </div>
-        <div>
-          <h3 style={contentStyle}>
-            <img
-              alt="Slide 2"
-              style={slideImageStyle}
-              src="https://fairfieldacc.com/wp-content/uploads/2023/04/poster-horizantal.jpg"
-            />
-          </h3>
-          <Link to={`/3`}>
-          <button  className="button">Watch Now</button>
-          </Link>
-        </div>
+        
         <div>
           <h3 style={contentStyle}>
             <img

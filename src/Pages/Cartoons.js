@@ -13,7 +13,7 @@ export const Cartoons = () => {
   }, [location]);
 
     const maxTitleLength = 18;
-    const initialValue = useData();
+    const { value: initialValue } = useData();
     const value = initialValue.filter(item => item.row.genres.includes("Animation"))
     return(
 

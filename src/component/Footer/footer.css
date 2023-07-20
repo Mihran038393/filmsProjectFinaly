@@ -1,8 +1,18 @@
 .desc_films{
-    color:#f2f2f2;;
+    
     font-size: 35px;
     font-family: 'Poppins', sans-serif;
 }
+
+body.light .desc_films {
+    color:rgb(0, 0, 0);
+  }
+
+  body.dark .desc_films {
+    color:#f2f2f2;;
+  }
+
+
 .films_desc_main{
     display: flex;
     flex-direction: column;
@@ -10,11 +20,22 @@
     margin-top: 50px;
 }
 .desc_title{
-    color:#c2c2c2;
+
     max-width: 979px;
     font-family: 'Poppins', sans-serif;
     margin-top: 10px;
 }
+
+
+body.light .desc_title {
+    color:rgb(0, 66, 66);
+  }
+
+  body.dark .desc_title {
+    color:#c2c2c2;
+  }
+
+
 .footer_back{
  display: flex;
  justify-content: center;

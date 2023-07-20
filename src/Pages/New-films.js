@@ -6,15 +6,15 @@ import { useEffect } from "react";
 
 export const NewFilms = () => {
 
-    const maxTitleLength = 18;
-    const initialValue = useData();
-    const value = initialValue.filter((item) => item.row.release_date.slice(0, 4) == "2023");
+  const maxTitleLength = 18;
+  const { value: initialValue } = useData();
+  const value = initialValue.filter((item) => item.row.release_date.slice(0, 4) == "2023");
 
-    const location = useLocation()
+  const location = useLocation();
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [location]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
     return(
       <div className="marg">

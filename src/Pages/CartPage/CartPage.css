@@ -5,20 +5,38 @@
     justify-content: center;
 }
 .Cart_Title{
-    color: aliceblue;
+
     display: grid;
     place-items: center;
     font-family: 'Red Hat Display', sans-serif;
     letter-spacing: 2px;
 }
+
+body.light .Cart_Title {
+  color:rgb(0, 66, 66);
+}
+
+body.dark .Cart_Title {
+  color: aliceblue;
+}
+
 .Cart_Subtitle{
-    color: rgb(146, 143, 143);
+
     display: grid;
     place-items: center;
     margin-bottom: 10px;
     font-family: 'Red Hat Display', sans-serif;
     letter-spacing: 1px;
 }
+
+body.light .Cart_Subtitle {
+  color:rgb(0, 0, 0);
+}
+
+body.dark .Cart_Subtitle {
+  color: rgb(146, 143, 143);
+}
+
 .cart_img{
     width: 260px;
     height: 380px;
@@ -31,8 +49,18 @@
     width: 855px;
     border-collapse: collapse;
     -moz-osx-font-smoothing: grayscale;
+
+  }
+
+  body.light table {
+    color:rgb(0, 0, 0);
+  }
+  
+  body.dark table {
     color: aliceblue;
   }
+
+
   td {
     padding: 8px;
     text-align: left;
@@ -45,32 +73,64 @@
   }
   tr:hover{
     opacity: 0.5;
-    background-color: rgb(73, 67, 67);
     cursor: pointer;
+  }
+
+  body.light tr:hover {
+    background-color: rgb(0, 66, 66);
+    color: white
+  }
+  
+  body.dark tr:hover {
+    background-color: rgb(73, 67, 67);
   }
 
 
 .cart_desc {
     font-size: 28px;
-    color: white;
    margin-left:100px;
    margin-top: 30px;
     font-family: 'Red Hat Display', sans-serif;
 }
+
+body.light .cart_desc {
+  color: rgb(0, 0, 0)
+}
+
+body.dark .cart_desc {
+  color: rgb(211, 211, 211);
+}
+
+
 .cart_desc2 {
   font-size: 28px;
-  color: white;
  margin-left:100px;
   font-family: 'Red Hat Display', sans-serif;
 }
 
+body.light .cart_desc2 {
+  color: rgb(0, 0, 0)
+}
+
+body.dark .cart_desc2 {
+  color: rgb(211, 211, 211);
+}
+
 .over_desc{
-  color: wheat;
+
   font-family: 'Red Hat Display', sans-serif;
   max-width: 1000px;
   margin-left: 100px;
   margin-top: 7px;
   letter-spacing: 1px;
+}
+
+body.light .over_desc {
+  color: rgb(0, 66, 66)
+}
+
+body.dark .over_desc {
+  color: wheat;
 }
 
 .main_descrip{

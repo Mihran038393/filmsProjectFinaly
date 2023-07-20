@@ -14,7 +14,7 @@ const location = useLocation()
     window.scrollTo(0, 0);
   }, [location]);
   const { id } = useParams();
-  const initialValue = useData();
+  const { value: initialValue } = useData();
   const value = initialValue.filter(item => item.row_idx == id);
   const cart = value[0];
   const oldGenres = cart.row.genres;

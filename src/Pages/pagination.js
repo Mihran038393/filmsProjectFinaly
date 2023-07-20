@@ -1,13 +1,10 @@
-import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-export default function PaginationControlled() {
-  const [page, setPage] = React.useState(1);
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
+
+export default function PaginationControlled({ page, handleChange }) {
+ 
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '45px' }}>
@@ -17,9 +14,9 @@ export default function PaginationControlled() {
           count={5}
           page={page}
           onChange={handleChange}
-          style={{ color: 'white' }}
+    
           sx={{
-            '& .MuiPaginationItem-root': { color: 'white', fontSize: '1.2rem' },
+            '& .MuiPaginationItem-root': { color:'white' , fontSize: '1.2rem' },
             '& .MuiPaginationItem-page.Mui-selected': { backgroundColor: 'rgb(0, 66, 66)', color: 'white' },
           }}
         />

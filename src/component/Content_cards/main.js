@@ -10,16 +10,15 @@ import { useLocation } from "react-router-dom";
 const DataContext = createContext([]);
 
 export const DataProvider = ({ children }) => {
-
-
-
   const [value, setValue] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [searchedValue, setSearchedValue] = useState([]);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     fetch(
       "https://datasets-server.huggingface.co/rows?dataset=wykonos%2Fmovies&config=wykonos--movies&split=train&offset=0&limit=100"
     )
-         .then((response) => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error("Data is undefined");
         }
@@ -27,27 +26,32 @@ export const DataProvider = ({ children }) => {
       })
       .then((responseData) => {
         setValue(responseData.rows);
-        setIsLoading(false); 
+        setSearchedValue(responseData.rows);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
         setIsLoading(false);
       });
-
-
   }, []);
 
+  const onSearch = (input) => {
+    const filteredResult = value.filter((i) => {
+      return i.row.title.toLowerCase().includes(input.toLowerCase());
+    });
 
+    setSearchedValue(filteredResult);
+  };
+
+  const onToggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
 
   if (isLoading) {
-    return <Spiner />; 
+    return <Spiner />;
   }
 
-  return (
-    <DataContext.Provider value={value}>
-      {children}
-    </DataContext.Provider>
-  );
+  return <DataContext.Provider value={{ value, searchedValue, isSearchOpen, onSearch, onToggleSearch }}>{children}</DataContext.Provider>;
 };
 
 export const useData = () => {
@@ -55,9 +59,8 @@ export const useData = () => {
 };
 
 const Main = () => {
+  const location = useLocation();
 
-  const location = useLocation()
- 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
